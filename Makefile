@@ -10,4 +10,4 @@ start:
 	source ~/.todo/bin/activate &&\
 		python web.py
 
-all: setup install start-api
+all: setup install start
