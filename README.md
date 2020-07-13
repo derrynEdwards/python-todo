@@ -2,7 +2,7 @@
 Small To-Do app made with Flask.
 
 ## Requirements
-- Relational Database - Postgres Recommended
+- Relational Database - Supports - (MySQL, Postgres, SQLite)
 - Python3
 - .env file based on the `.env-sample`
 
@@ -16,7 +16,7 @@ Small To-Do app made with Flask.
 - Clone the repo `https://github.com/derrynEdwards/python-todo.git)`
 - `make setup` to setup the venv
 - `make install` to install the required packages in the venv
-- `make start-api` to run the app
+- `make start` to run the app
 
 ### Step by Step without Makefile
 - Clone the repo `git clone https://github.com/derrynEdwards/python-todo.git`

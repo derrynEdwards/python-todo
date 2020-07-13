@@ -3,3 +3,4 @@ __pycache__
 migrations/
 .vscode
 app.py
+todo
