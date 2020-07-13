@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TO-DO App</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles/style.css') }}">
+    </head>
+    <body>
+        <div class="list-wrapper">
+            <h4>To-Do Lists</h4>
+            <form id="list-form">
+                <div>
+                    <label for="name">Create a List</label>
+                    <input type="text" id="list-name" name="list-name">
+                    <input type="submit" id="submit" class="sbmt-button" value="Create" />
+                </div>
+            </form>
+            <ul id="lists">
+                {% for list in lists %}
+                    <li>
+                        <input class="check-list-completed" data-id="{{ list.id }}" type="checkbox" {% if list.completed %} checked {% endif %}/>
+                        <a href="/lists/{{ list.id }}">{{ list.name }}</a>
+                        <button class="list_delete-button" data-id="{{ list.id }}">&cross;</button>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="task-wrapper">
+            <h4>{{ active_list.name }}</h4>
+            {% if active_list %}
+            <form id="form" data-id="{{ active_list.id }}">
+                <div>
+                    <label for="name">Create a To-Do Item</label>
+                    <input type="text" id="description" name="description">
+                    <input type="submit" id="submit" class="sbmt-button" value="Create" />
+                </div>
+            </form>
+            {% endif %}
+            <div id="error" class="hidden">Something went wrong!</div>
+            <ul id="todos">
+                {% for d in tasks %}
+                <li>
+                    <input class="check-completed" data-id="{{ d.id }}" type="checkbox" {% if d.completed %} checked {% endif %}/>
+                    {{ d.description }}
+                    <button class="delete-button" data-id="{{ d.id }}">&cross;</button>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <script src="{{ url_for('static', filename='scripts/todo.js') }}"></script>
+    </body>
+</html>
